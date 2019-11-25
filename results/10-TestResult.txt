@@ -1,0 +1,79 @@
+Parametros
+SVC(kernel="linear", C=1.0),
+DecisionTreeClassifier(max_depth=7),
+RandomForestClassifier(max_depth=7, n_estimators=100),
+MLPClassifier(alpha=0.3, max_iter=2000),
+AdaBoostClassifier(),
+
+###############################
+Linear SVM
+D:\Programas\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.93      0.88      0.91      7267
+         yes       0.38      0.54      0.45       971
+
+    accuracy                           0.84      8238
+   macro avg       0.66      0.71      0.68      8238
+weighted avg       0.87      0.84      0.85      8238
+
+[[6415  852]
+ [ 446  525]]
+###############################
+Decision Tree
+              precision    recall  f1-score   support
+
+          no       0.93      0.92      0.93      7267
+         yes       0.47      0.52      0.49       971
+
+    accuracy                           0.87      8238
+   macro avg       0.70      0.72      0.71      8238
+weighted avg       0.88      0.87      0.88      8238
+
+[[6700  567]
+ [ 467  504]]
+###############################
+Random Forest
+__main__:178: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+              precision    recall  f1-score   support
+
+          no       0.94      0.88      0.91      7267
+         yes       0.41      0.60      0.49       971
+
+    accuracy                           0.85      8238
+   macro avg       0.68      0.74      0.70      8238
+weighted avg       0.88      0.85      0.86      8238
+
+[[6415  852]
+ [ 386  585]]
+###############################
+Neural Net
+D:\Programas\Anaconda3\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py:921: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.94      0.85      0.89      7267
+         yes       0.34      0.57      0.42       971
+
+    accuracy                           0.82      8238
+   macro avg       0.64      0.71      0.66      8238
+weighted avg       0.87      0.82      0.84      8238
+
+[[6193 1074]
+ [ 420  551]]
+###############################
+AdaBoost
+D:\Programas\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.93      0.92      0.92      7267
+         yes       0.45      0.50      0.47       971
+
+    accuracy                           0.87      8238
+   macro avg       0.69      0.71      0.70      8238
+weighted avg       0.87      0.87      0.87      8238
+
+[[6673  594]
+ [ 490  481]]
