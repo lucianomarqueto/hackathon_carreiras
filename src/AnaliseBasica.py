@@ -20,56 +20,37 @@ from sklearn import preprocessing
 path = "D:/python/hackathon_carreiras/data/"
 path_out = "D:/python/hackathon_carreiras/data/"
 
-
 df_file = pd.read_csv(path + "bank-additional-full.csv",";")
 
-df_file.apply()
+#Remove atributo não disponivel para previsão
+df_file = df_file.drop(["duration"],axis=1)
 
 describe = df_file.describe()
 
 corr = df_file.corr()
 
-
+#split df nominal e numerico e label
 df_obj = df_file.select_dtypes(include=[object])
-df_obj.head(3)
+columns_obj = df_obj.columns
+df_nominal = df_obj.drop(["y"],axis=1)
+df_numerico = df_file.drop(columns_obj,axis=1)
+columns_obj = columns_obj.drop('y')
+df_label = df_obj.drop(columns_obj,axis=1)
 
-# 1. INSTANTIATE
-# encode labels with value between 0 and n_classes-1.
-le = preprocessing.LabelEncoder()
-
-
-
-
-# 2/3. FIT AND TRANSFORM
-# use df.apply() to apply le.fit_transform to all columns
-df_obj = df_file.apply(le.fit_transform)
-df_obj.head()
-
-le = preprocessing.LabelEncoder()
-
-df_obj_2 = df_file.apply(le.fit_transform)
-df_obj_2.head()
+#one hot encode atributos nominais
+df_nominal = pd.get_dummies(df_nominal)
 
 
-enc = preprocessing.OneHotEncoder()
 
-# 2. FIT
-enc.fit(df_obj_2)
+#Removendo outliers
+df_file['col'] = df_file['col'].clip(0,1000)
 
-# 3. Transform
-onehotlabels = enc.transform(df_obj_2).toarray()
-onehotlabels
+#scaling
+for col in columsList:             
+    max_c = df_c[col].max()
+    df_c[col] = df_c.apply(lambda x: 0 if x[col]==0 else x[col]/max_c  , axis = 1)        
+return df_c
+   
 
-
-def hotencode(df, col):
-    # integer encode
-    label_encoder = LabelEncoder()
-    integer_encoded = label_encoder.fit_transform(df[col])
-    print(integer_encoded)
-    # binary encode
-    onehot_encoder = OneHotEncoder(sparse=False)
-    integer_encoded = integer_encoded.reshape(len(integer_encoded), 1)
-    onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
-    print(onehot_encoded)
-    
-hotencode(df_file, 'marital')
+df_final = pd.merge(df_nominal,df_numerico,left_index=True, right_index=True)  
+df_final = pd.merge(df_final,df_label,left_index=True, right_index=True)  
