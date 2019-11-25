@@ -1,0 +1,132 @@
+Removido mais colunas 
+df_file = df_file.drop(["pdays"],axis=1)
+df_file = df_file.drop(["euribor3m"],axis=1)
+df_file = df_file.drop(["nr.employed"],axis=1)
+df_file = df_file.drop(["emp.var.rate"],axis=1)
+
+Parametros
+SVC(kernel="linear", C=0.025),
+SVC(gamma=2, C=1),
+DecisionTreeClassifier(max_depth=5),
+RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+MLPClassifier(alpha=1, max_iter=1000),
+AdaBoostClassifier(),
+
+###############################
+Nearest Neighbors
+__main__:181: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+              precision    recall  f1-score   support
+
+          no       0.92      0.75      0.83     14592
+         yes       0.21      0.53      0.31      1884
+
+    accuracy                           0.73     16476
+   macro avg       0.57      0.64      0.57     16476
+weighted avg       0.84      0.73      0.77     16476
+
+[[10967  3625]
+ [  892   992]]
+###############################
+Linear SVM
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.94      0.88      0.91     14592
+         yes       0.36      0.53      0.43      1884
+
+    accuracy                           0.84     16476
+   macro avg       0.65      0.71      0.67     16476
+weighted avg       0.87      0.84      0.85     16476
+
+[[12835  1757]
+ [  878  1006]]
+###############################
+Decision Tree
+              precision    recall  f1-score   support
+
+          no       0.94      0.89      0.91     14592
+         yes       0.38      0.53      0.44      1884
+
+    accuracy                           0.85     16476
+   macro avg       0.66      0.71      0.67     16476
+weighted avg       0.87      0.85      0.86     16476
+
+[[12941  1651]
+ [  889   995]]
+###############################
+Random Forest
+__main__:181: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+              precision    recall  f1-score   support
+
+          no       0.93      0.73      0.82     14592
+         yes       0.22      0.59      0.32      1884
+
+    accuracy                           0.71     16476
+   macro avg       0.58      0.66      0.57     16476
+weighted avg       0.85      0.71      0.76     16476
+
+[[10619  3973]
+ [  764  1120]]
+###############################
+Neural Net
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py:921: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.94      0.81      0.87     14592
+         yes       0.30      0.62      0.40      1884
+
+    accuracy                           0.79     16476
+   macro avg       0.62      0.72      0.64     16476
+weighted avg       0.87      0.79      0.82     16476
+
+[[11805  2787]
+ [  713  1171]]
+###############################
+AdaBoost
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+              precision    recall  f1-score   support
+
+          no       0.94      0.91      0.92     14592
+         yes       0.43      0.54      0.48      1884
+
+    accuracy                           0.87     16476
+   macro avg       0.69      0.72      0.70     16476
+weighted avg       0.88      0.87      0.87     16476
+
+[[13257  1335]
+ [  867  1017]]
+###############################
+Naive Bayes
+              precision    recall  f1-score   support
+
+          no       0.94      0.55      0.69     14592
+         yes       0.18      0.75      0.29      1884
+
+    accuracy                           0.57     16476
+   macro avg       0.56      0.65      0.49     16476
+weighted avg       0.86      0.57      0.65     16476
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+
+[[7999 6593]
+ [ 466 1418]]
+###############################
+QDA
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\validation.py:724: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+C:\ProgramData\Anaconda3\lib\site-packages\sklearn\discriminant_analysis.py:693: UserWarning: Variables are collinear
+  warnings.warn("Variables are collinear")
+              precision    recall  f1-score   support
+
+          no       0.93      0.41      0.57     14592
+         yes       0.15      0.77      0.24      1884
+
+    accuracy                           0.45     16476
+   macro avg       0.54      0.59      0.41     16476
+weighted avg       0.84      0.45      0.54     16476
+
+[[6036 8556]
+ [ 428 1456]]
